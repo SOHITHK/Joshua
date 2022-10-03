@@ -1,0 +1,45 @@
+<router-outlet></router-outlet>
+<div class="row   mt-2">
+    <div class="col-6 text-center">
+        <button (click)="onclickopendialog()" mat-raised-button class="color">+ Add Patient</button>
+    </div>
+</div>
+
+<div class="row justify-content-center mt-3">
+    <div class="col-7">
+        <table>
+            <thead class="tablecolor">
+                <th>Name</th>
+                <th>Age</th>
+                <th>Sex</th>
+                <th>Check-in</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of tabledata">
+                    <td>{{data.patientname}}</td>
+                    <td>{{data.patientage}}</td>
+                    <td>{{data.patientgender}}</td>
+                    <td>{{data.checkindate}}</td>
+                    <td>
+                        <div class="row">
+                        <div class="col-2 text-start">
+                        <mat-icon (click)="onclickeditdialog(data)">edit</mat-icon>
+                        </div>
+                        <div class="col-2 text-center">
+
+                        <mat-icon (click)="onclickdelete(data.patientdetailsiduniquekey)">delete</mat-icon>
+                        </div>
+                        <div class="col-2 text-end">
+
+                        <mat-icon (click)="onclickpatienthistory()">person</mat-icon>
+                        </div>
+                    </div>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+</div>

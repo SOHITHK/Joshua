@@ -1,0 +1,47 @@
+.color{
+  background-color:green;
+  color: white;
+  
+
+}
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+.icon{
+ font-size: 18px;
+ font-weight: bold;
+}
+.icon2{
+font-size: 13px;
+font-weight: bold;
+}
+.tablecolor{
+  background-color: rgb(9, 9, 84);
+  color: white;
+    border-collapse: collapse;
+  font-weight: bold;
+}
+table {
+font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+border: 1px solid #dddddd;
+text-align: left;
+padding:5px;
+ border-collapse: collapse
+}
+
+tr:nth-child(even) {
+background-color: #96b1be;
+}

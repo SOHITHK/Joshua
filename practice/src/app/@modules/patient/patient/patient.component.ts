@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { GridOptions } from 'ag-grid-community';
 import { DummyCrudService } from 'src/app/@core/dummy-crud.service';
 import { AddPatientComponent, addpatientmodel } from '../components/add-patient/add-patient.component';
 import { DeletePatientComponent } from '../components/delete-patient/delete-patient.component';
@@ -13,7 +14,51 @@ import { HistoryPatientComponent } from '../components/history-patient/history-p
 })
 export class PatientComponent implements OnInit {
   tabledata: Array<addpatientmodel> = []
+  gridOptions: GridOptions<any>;
   constructor(public dialog: MatDialog, private dummyCrudService: DummyCrudService) {
+    this.gridOptions = <GridOptions>{
+      enableSorting: true,
+      // enable filtering 
+      enableFilter: true
+    };
+    this.gridOptions.columnDefs = [
+        {
+            headerName: "Name",
+            field: "id",
+            width: 100
+        },
+        {
+            headerName: "Age",
+            field: "value",
+          
+            width: 100
+        },
+        {
+            headerName: "Sex",
+            field: "gender",
+          
+            width: 100
+        },
+        {
+            headerName: "Check-in-date",
+            field: "Date",
+          
+            width: 200
+        },
+        {
+            headerName: "Actions",
+            field: "value",
+          
+          
+            width: 100
+        },
+
+    ];
+    this.gridOptions.rowData = [
+        {id: "sohith", value: 10,gender:"Male",Date:"12-12-2022",},
+        {id: "Joshua", value: 15,gender:"Female",Date:"12-12-2022"},
+        {id: "Raj", value: 20,gender:"male",Date:"12-12-2022"}
+    ]
 
   }
 

@@ -34,12 +34,13 @@ export class HistoryPatientComponent implements OnInit {
       surgeries:new FormControl("",[Validators.required]),
       
     })
+    
   }
   onclicksavefn(){
     let payload:patienthistorymodel ={
       patientdetailsiduniquekey:Math.floor(Math.random() *999 - 1111),
-      patientweight:this._PatientHistoryformgroup.value.patientweight,
-      patientheight:this._PatientHistoryformgroup.value.patientheight,
+      patientweight:this._PatientHistoryformgroup.value.Height,
+      patientheight:this._PatientHistoryformgroup.value.weight,
       smoking:this._PatientHistoryformgroup.value.smoking,
       alcoholDrinking:this._PatientHistoryformgroup.value.alcoholDrinking,
       Drugusage:this._PatientHistoryformgroup.value.Drugusage,

@@ -17,6 +17,8 @@ export interface addpatientmodel {
 })
 export class AddPatientComponent implements OnInit {
   _addpatientformgroup!: FormGroup;
+
+  
   gender = [
     { name: "Male", sex: "Male" },
     { name: "Female", sex: "Female" },
@@ -24,23 +26,20 @@ export class AddPatientComponent implements OnInit {
   ]
  
   constructor(private fb: FormBuilder,public dialog: MatDialog, private dummyCrudService: DummyCrudService,private _dialogref:MatDialogRef<AddPatientComponent>
-    ) { this.createForm() }
+    ) {}
 
   
 
   ngOnInit(): void {
-    this._addpatientformgroup = new FormGroup({
+    this._addpatientformgroup = this.fb.group({
       name: new FormControl("", [Validators.required]),
       age: new FormControl("", [Validators.required]),
       sex: new FormControl("", [Validators.required]),
       checkindate: new FormControl("", [Validators.required]),
     })
+    
   }
-  createForm() {
-    this._addpatientformgroup = this.fb.group({
-         name: ['', Validators.required ]
-    });
-  }
+  
   onclicksavefn() {
     let payload: addpatientmodel = {
       patientdetailsiduniquekey: Math.floor(Math.random() * 9999 - 1111),
@@ -55,8 +54,8 @@ export class AddPatientComponent implements OnInit {
   onNoClick():void {
     this._dialogref.close();
   }
-  
-    }
+ 
+  }
   
  
  

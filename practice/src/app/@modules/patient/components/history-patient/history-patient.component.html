@@ -15,15 +15,15 @@
 
             </div>
 
-            <div class="row mt-2">
+            <div class="row mt-2"  [formGroup]="_PatientHistoryformgroup">
                 <div class="col-2">
                     <mat-label>*Height(cm):</mat-label>
-                    <input style="width:60px;" type="text" id="fname" name="fname"><br>
+                    <input formControlName="Height" style="width:60px;" type="text" id="fname" name="fname"><br>
 
                 </div>
                 <div class="col-2">
                     <mat-label>*weight(cm):</mat-label>
-                    <input style="width:60px;" type="text" id="fname" name="fname"><br>
+                    <input formControlName="weight" style="width:60px;" type="text" id="fname" name="fname"><br>
 
                 </div>
                 <div class="col-6 mt-4">
@@ -134,7 +134,7 @@
 </div>
 <div class="row mt-4">
     <div class="col-9 text-end pt-2">
-        <button mat-button class="color">Save</button>
+        <button mat-button class="color" (click)="onclicksavefn()">Save</button>
     </div>
     <div class="col-2 pt-2">
         <button mat-button class="color1">Go to Dashboard</button>

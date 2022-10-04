@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, RequiredValidator, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DummyCrudService } from 'src/app/@core/dummy-crud.service';
@@ -10,11 +10,13 @@ export interface addpatientmodel {
 
   checkindate: string
 }
+
 @Component({
   selector: 'app-add-patient',
   templateUrl: './add-patient.component.html',
   styleUrls: ['./add-patient.component.scss']
 })
+
 export class AddPatientComponent implements OnInit {
   _addpatientformgroup!: FormGroup;
 
@@ -28,8 +30,7 @@ export class AddPatientComponent implements OnInit {
   constructor(private fb: FormBuilder,public dialog: MatDialog, private dummyCrudService: DummyCrudService,private _dialogref:MatDialogRef<AddPatientComponent>
     ) { this.ngOnInit()}
 
-   
- 
+
 
 
   ngOnInit(): void {

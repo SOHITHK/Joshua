@@ -5,6 +5,7 @@ import { PatientRoutingModule } from './patient-routing.module';
 import { MaterialModule } from 'src/app/@shared/materail/materail.module';
 import { AgGridModule } from 'ag-grid-angular';
 
+
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PatientComponent } from './patient/patient.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,6 +31,7 @@ import { HistoryPatientComponent } from './components/history-patient/history-pa
     MaterialModule,
     AgGridModule,
     HttpClientModule,
+
     FormsModule,ReactiveFormsModule
   ]
 })

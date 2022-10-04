@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './@shared/materail/materail.module';
 import { PatientModule } from './@modules/patient/patient.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,7 +19,9 @@ import { PatientModule } from './@modules/patient/patient.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    PatientModule
+    ReactiveFormsModule,
+    PatientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

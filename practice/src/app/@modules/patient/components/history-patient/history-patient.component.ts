@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DummyCrudService } from 'src/app/@core/dummy-crud.service';
 export interface patienthistorymodel {
@@ -22,10 +22,10 @@ export class HistoryPatientComponent implements OnInit {
 
   _PatientHistoryformgroup!:FormGroup;
 
-  constructor(public dialog:MatDialog,private dummyCrudService:DummyCrudService,private _dialogref:MatDialogRef <patienthistorymodel>) { }
+  constructor(public _fb:FormBuilder,public dialog:MatDialog,private dummyCrudService:DummyCrudService,private _dialogref:MatDialogRef <patienthistorymodel>) { }
 
   ngOnInit(): void {
-    this._PatientHistoryformgroup! = new FormGroup({
+    this._PatientHistoryformgroup! = this._fb.group({
       Height:new FormControl("",[Validators.required]),
       weight:new FormControl("",[Validators.required]),
       smoking:new FormControl("",[Validators.required]),
@@ -53,6 +53,9 @@ export class HistoryPatientComponent implements OnInit {
     
 
       
+  }
+  onNoClick():void {
+    this._dialogref.close();
   }
     }
   

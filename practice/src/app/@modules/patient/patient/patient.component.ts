@@ -109,9 +109,9 @@ export class PatientComponent implements OnInit {
   }
   onclickpatienthistory() {
     this.dialog.open(HistoryPatientComponent), {
-      panelClass: "pop-up",
-      minWidth: "500px",
-      minHeight: "350px",
+      panelClass: "full-screen-dialog",
+      Width: "800px",
+      Height: "700px",
     }
   }
 

@@ -1,142 +1,195 @@
-<div class="container-fluid ">
-    <div class="row justify-content-center">
-        <div class="col-12 container">
-            <div class="row border-top">
-                <div class="col-6 style d-flex">
-                    <mat-icon>person</mat-icon>insert patient name here
-                </div>
-            </div>
-            <div class="row border-top">
 
+<div style="width:800px;height: 900px;" class="row justify-content-center" [formGroup]="_PatientHistoryformgroup">
 
-                <div class="col-12">
-                    <mat-label>Basic status</mat-label>
-                </div>
-
-            </div>
-
-            <div class="row mt-2"  [formGroup]="_PatientHistoryformgroup">
-                <div class="col-2">
-                    <mat-label>*Height(cm):</mat-label>
-                    <input formControlName="Height" style="width:60px;" type="text" id="fname" name="fname"><br>
-
-                </div>
-                <div class="col-2">
-                    <mat-label>*weight(cm):</mat-label>
-                    <input formControlName="weight" style="width:60px;" type="text" id="fname" name="fname"><br>
-
-                </div>
-                <div class="col-6 mt-4">
-                    <mat-label>Body mass index< BMI based on height & weight>
-                    </mat-label>
-
-
-                </div>
-            </div>
-
-            <div class="row mt-2">
-                <div class="col-12 mt-2"> 
-                    <mat-label>*Smoking</mat-label>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-2">
-                    <mat-radio-button>heavy smoker </mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>moderate smoker</mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>light smoker</mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>casual smoker </mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>Non smoker </mat-radio-button>
-                </div>
-
-            </div>
-            <div class="row mt-2">
-                <div class="col-12 mt-2">
-                    <mat-label>*Alcohol Driking</mat-label>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-2">
-                    <mat-radio-button>heavy Driking </mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>moderate Driking</mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>light Driking</mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>casual Driking</mat-radio-button>
-                </div>
-                <div class="col-2">
-                    <mat-radio-button>Non drinker </mat-radio-button>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-12 mt-2">
-                    <mat-label>*Drug Usage</mat-label>
-                </div>
-            </div>
-            <div class="row mt-2">
-                <div class="col-2">
-                    <mat-checkbox>Amphetamines </mat-checkbox>
-                </div>
-                <div class="col-2">
-                    <mat-checkbox>Heroiene</mat-checkbox>
-                </div>
-                <div class="col-2">
-                    <mat-checkbox>Barbiturates</mat-checkbox>
-                </div>
-                <div class="col-2">
-                    <mat-checkbox>Marijuana </mat-checkbox>
-                </div>
-                <div class="col-2">
-                    <mat-checkbox>No drugs</mat-checkbox>
-                </div>
-                <div class="col-2 d-flex">
-                    <mat-label>Others:</mat-label><input>
-                </div>
-              
-            </div>
-            <div class="row mt-2">
-                <div class="col-12">
-                    <mat-label>*Surgeries</mat-label>
-                </div>
-            </div>
-            <div class="row mt-2">
-
-                <div class="col-2">
-                    <mat-checkbox>Heart surgery</mat-checkbox>
-                </div>
-                <div class="col-2">
-                    <mat-checkbox>Breast surgery</mat-checkbox>
-                </div>
-                <div class="col-2">
-                    <mat-checkbox>Leg surgery</mat-checkbox>
-                </div>
-                <div class="col-2">
-                    <mat-checkbox>Arm surgery</mat-checkbox>
-                </div>
-                <div class="col-2 d-flex">
-                    <mat-label>Others:</mat-label><input>
-                </div>            
+    <div class="col-12 container">
+        <div class="row border-top">
+            <div class="col-6 style d-flex">
+                <mat-icon>person</mat-icon>insert patient name here
             </div>
         </div>
-       
-    </div>
+        <div class="row border-top">
+
+
+            <div class="col-12">
+                <mat-label>Basic status</mat-label>
+            </div>
+
+        </div>
+
+        <div class="row mt-2" >
+            <div class="col-2">
+                <mat-label>*Height(cm):</mat-label>
+                <input formControlName="Height" style="width:60px;" type="text" id="fname" name="fname"><br>
+                <div *ngIf="_PatientHistoryformgroup.controls['Height'].invalid && (_PatientHistoryformgroup.controls['Height'].dirty || _PatientHistoryformgroup.controls['Height'].touched)"
+                    class="alert alert-danger">
+                    <!-- <div *ngIf="_PatientHistoryformgroup.controls['Height'].errors">
+                        Height is required.
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-2">
+                <mat-label>*weight(cm):</mat-label>
+                <input formControlName="weight" style="width:60px;" type="text" id="fname" name="fname"><br>
+                <div *ngIf="_PatientHistoryformgroup.controls['weight'].invalid && (_PatientHistoryformgroup.controls['weight'].dirty || _PatientHistoryformgroup.controls['weight'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="_PatientHistoryformgroup.controls['weight'].errors">
+                        weight is required.
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 mt-4">
+                <mat-label>Body mass index< BMI based on height & weight>
+                </mat-label>
+
+
+            </div>
+        </div>
+
+        <div class="row mt-2">
+            <div class="col-12 mt-2">
+                <mat-label>*Smoking</mat-label>
+
+            </div>
+        </div>
+        <div class="row mt-2">
+            <mat-radio-group formControlName="smoking">
+                <div style="padding:10px;"
+                    *ngIf="_PatientHistoryformgroup.controls['smoking'].invalid && (_PatientHistoryformgroup.controls['smoking'].dirty || _PatientHistoryformgroup.controls['smoking'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="_PatientHistoryformgroup.controls['smoking'].errors">
+                        smoking is required.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+
+                        <mat-radio-button>heavy smoker </mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>moderate smoker</mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>light smoker</mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>casual smoker </mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>Non smoker </mat-radio-button>
+                    </div>
+                </div>
+            </mat-radio-group>
+
+
+
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 mt-2">
+                <mat-label formControlName="alcoholDrinking">*Alcohol Driking</mat-label>
+
+            </div>
+        </div>
+        <div class="row mt-2">
+            <mat-radio-group formControlName="alcoholDrinking">
+                <div *ngIf="_PatientHistoryformgroup.controls['alcoholDrinking'].invalid && (_PatientHistoryformgroup.controls['alcoholDrinking'].dirty || _PatientHistoryformgroup.controls['alcoholDrinking'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="_PatientHistoryformgroup.controls['alcoholDrinking'].errors">
+                        alcoholDrinking is required.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-2">
+                        <mat-radio-button>heavy Driking </mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>moderate Driking</mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>light Driking</mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>casual Driking</mat-radio-button>
+                    </div>
+                    <div class="col-2">
+                        <mat-radio-button>Non drinker </mat-radio-button>
+                    </div>
+                </div>
+            </mat-radio-group>
+
+        </div>
+        <div class="row mt-2">
+            <div class="col-12 mt-2">
+                <mat-label formControlName="Drugusage">*Drug Usage</mat-label>
+                <div *ngIf="_PatientHistoryformgroup.controls['Drugusage'].invalid && (_PatientHistoryformgroup.controls['Drugusage'].dirty || _PatientHistoryformgroup.controls['Drugusage'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="_PatientHistoryformgroup.controls['Drugusage'].errors">
+                        Drugusage is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-2">
+                <mat-checkbox>Amphetamines </mat-checkbox>
+
+            </div>
+            <div class="col-2">
+                <mat-checkbox>Heroiene</mat-checkbox>
+            </div>
+            <div class="col-2">
+                <mat-checkbox>Barbiturates</mat-checkbox>
+            </div>
+            <div class="col-2">
+                <mat-checkbox>Marijuana </mat-checkbox>
+            </div>
+            <div class="col-2">
+                <mat-checkbox>No drugs</mat-checkbox>
+            </div>
+            <div class="col-2 d-flex">
+                <mat-label>Others:</mat-label><input>
+            </div>
+
+        </div>
+        <div class="row mt-2">
+            <div class="col-12">
+                <mat-label formControlName="Surgeries">*Surgeries</mat-label>
+                <div *ngIf="_PatientHistoryformgroup.controls['Surgeries'].invalid && (_PatientHistoryformgroup.controls['Surgeries'].dirty || _PatientHistoryformgroup.controls['Surgeries'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="_PatientHistoryformgroup.controls['Surgeries'].errors">
+                        Surgeries is required.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2">
+
+            <div class="col-2">
+                <mat-checkbox>Heart surgery</mat-checkbox>
+            </div>
+            <div class="col-2">
+                <mat-checkbox>Breast surgery</mat-checkbox>
+            </div>
+            <div class="col-2">
+                <mat-checkbox>Leg surgery</mat-checkbox>
+            </div>
+            <div class="col-2">
+                <mat-checkbox>Arm surgery</mat-checkbox>
+            </div>
+            <div class="col-2 d-flex">
+                <mat-label>Others:</mat-label><input>
+            </div>
+        </div>
+    <!-- </div>
 </div>
+<div>
+</div> -->
 <div class="row mt-4">
     <div class="col-9 text-end pt-2">
-        <button mat-button class="color" (click)="onclicksavefn()">Save</button>
+        <button (click)="onclicksavefn()" mat-button class="Green save"
+        [disabled]="_PatientHistoryformgroup.pristine || _PatientHistoryformgroup.invalid"
+        class="btn btn-success">Save</button>
     </div>
-    <div class="col-2 pt-2">
-        <button mat-button class="color1">Go to Dashboard</button>
+    <div class="col-3 pt-2">
+        <button mat-button class="color1" (click)="onNoClick()">Go to Dashboard</button>
     </div>
 </div>

@@ -26,9 +26,11 @@ export class AddPatientComponent implements OnInit {
   ]
  
   constructor(private fb: FormBuilder,public dialog: MatDialog, private dummyCrudService: DummyCrudService,private _dialogref:MatDialogRef<AddPatientComponent>
-    ) {}
+    ) { this.ngOnInit()}
 
-  
+   
+ 
+
 
   ngOnInit(): void {
     this._addpatientformgroup = this.fb.group({

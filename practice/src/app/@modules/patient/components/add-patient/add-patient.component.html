@@ -4,48 +4,76 @@
             +Add Patient
         </div>
     </div>
-    <div [formGroup]="_addpatientformgroup" class="">   
-         <div class="row border-top">
+    <div [formGroup]="_addpatientformgroup" class="">
+        <div class="row border-top">
 
 
-        <div class="col-12" >
-            <mat-label>*Name</mat-label>
-            <input formControlName="name" style="width:100%;"><br>
+            <div class="col-12">
+                <mat-label>*Name</mat-label>
+                <input formControlName="name" style="width:100%;"><br>
+                <div style="padding: 5px;"
+                    *ngIf="_addpatientformgroup.controls['name'].invalid && (_addpatientformgroup.controls['name'].dirty || _addpatientformgroup.controls['name'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="_addpatientformgroup.controls['name'].errors">
+                        Name is required.
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-    </div>
-
-    <div class="row mt-2">
-        <div class="col-md-2 lg-2 col-12">
-            <mat-label>*Age</mat-label>
-            <input formControlName="age" [type]="'number'" max="99" min="1" style="width:70px;" type="text" id="fname" name="fname"><br>
-
+        <div class="row mt-2">
+            <div class="col-12">
+                <mat-label>*Age</mat-label>
+                <input formControlName="age" [type]="'number'" max="99" min="1"><br>
+                <div style="padding: 5px;"
+                    *ngIf="_addpatientformgroup.controls['age'].invalid && (_addpatientformgroup.controls['age'].dirty || _addpatientformgroup.controls['age'].touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="_addpatientformgroup.controls['age'].errors">
+                        Age is required.
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-md-10 col-12">
-         <mat-label>Gender</mat-label><br>
-       
-                <mat-radio-group formControlName="sex"  aria-label="Select an option">
-                   
-                    <mat-radio-button *ngFor="let sex of gender" [value]="sex.sex">{{sex.name}}</mat-radio-button>
-                </mat-radio-group>
+            <mat-label>sex</mat-label><br>
+            <div *ngIf="_addpatientformgroup.controls['sex'].invalid && (_addpatientformgroup.controls['sex'].dirty || _addpatientformgroup.controls['sex'].touched)"
+            class="alert alert-danger">
+            <div *ngIf="_addpatientformgroup.controls['sex'].errors">
+                sex is required.
+            </div>
+        </div>
+            <mat-radio-group formControlName="sex" aria-label="Select an option">
                
-   
+                <mat-radio-button *ngFor="let sex of gender" [value]="sex.sex">{{sex.name}}</mat-radio-button>
+            </mat-radio-group>
 
-    </div>
-    <div class="row ">
-        <div class="col-12 mt-3" >
-            <mat-label>*Check-in Date</mat-label>
-            <input formControlName="checkindate" style="width:100%;" matInput type="date">
-        </div>
-    </div>
 
-    <div class="row border-top mt-2 ">
-        <div class=" text-end col-9 pt-2">
-            <button (click)="onclicksavefn()" mat-button class="Green save">Save</button>
+
         </div>
-        <div class="col-2 pt-2">
-            <button mat-button class="cancel save" (click)="onNoClick()">Cancel</button>
+        <div class="row ">
+            <div class="col-12 mt-3">
+                <mat-label>*Check-in Date</mat-label>
+                <input formControlName="checkindate" style="width:100%;" matInput type="date">
+                <div *ngIf="_addpatientformgroup.controls['checkindate'].invalid && (_addpatientformgroup.controls['checkindate'].dirty || _addpatientformgroup.controls['checkindate'].touched)"
+                class="alert alert-danger">
+                <div *ngIf="_addpatientformgroup.controls['checkindate'].errors">
+                    checkindate is required.
+                </div>
+            </div>
+            </div>
         </div>
-    </div></div>
+
+        <div class="row border-top mt-2 ">
+            <div class=" text-end col-9 pt-2">
+                <button (click)="onclicksavefn()" mat-button class="Green save"
+                    [disabled]="_addpatientformgroup.pristine || _addpatientformgroup.invalid"
+                    class="btn btn-success">Save</button>
+            </div>
+            <div class="col-2 pt-2">
+                <button mat-button class="cancel save" (click)="onNoClick()">Cancel</button>
+            </div>
+        </div>
+    </div>
 
 </div>

@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     PatientModule,
     
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
